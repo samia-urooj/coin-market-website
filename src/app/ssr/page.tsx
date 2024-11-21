@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default async function CoinSSRMarket(){
  const API_KEY2="8bd3979d56763b31d64cd8df304c428e";
- const res = await fetch(`http://api.coinlayer.com/live?access_key=${API_KEY2}`,
+ const res = await fetch(`https://api.coinlayer.com/live?access_key=${API_KEY2}`,
     {
         cache :"no-cache"
 });

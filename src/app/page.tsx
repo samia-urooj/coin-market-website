@@ -1,25 +1,20 @@
 "use client";
 import Link from "next/link";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 export default function Home() {
-  AOS.init({
-      duration: 1200, 
-      once: true,
-      offset: 100, 
-    });
+ 
   return (
     
     <div className="main flex " >
       <div className="div1 w-[40%] items-center text-center mt-20">
         
     
-      <img data-aos="flip-left" className="pic w-90 h-90 justify-center items-center mt-16" src="/image/btc.png"></img>
+      <img  className="pic w-90 h-90 justify-center items-center mt-16" src="/image/btc.png"></img>
       </div>
 
 
-      <div data-aos="fade-right" className="div2 text-left items-left w-[60%] mt-20">
-          <h1 className="hade text-white text-6xl font-serif  text-left">Welcome to <br></br>Coin Checker!</h1>
+      <div  className="div2 text-left items-left w-[60%] mt-20">
+          <h1 className="hade text-white text-6xl font-serif  text-left">Welcome to <br></br>Coin Market!</h1>
       <h2 className="hade text-white text-3xl font-sans text-left mt-8 ">💡<i> What’s New?</i></h2>
       <p className="con text-gray-300 text-xl text-left font-italic mt-3 mr-8">I’ve added SSR, CSR, SSG, and ISR options to showcase how different rendering techniques work. Whether you’re curious about web development or want a seamless user experience, these features have you covered!</p> 
         <p className="hade2 text-gray-300 text-xl font-sans text-left mt-3">See the quick introduction and differences on how different rendering techniques work.</p>

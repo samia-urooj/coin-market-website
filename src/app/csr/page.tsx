@@ -2,30 +2,31 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button"
 import Link from "next/link";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
+
 const CoinMarket=() =>{
-  AOS.init({
-    duration: 1200, 
-    once: true,
-    offset: 100, 
-  });
-  const API_KEY = "8bd3979d56763b31d64cd8df304c428e";
+ 
+  const API_KEY = "3dc355f958e5290af6f0cc0728c048e7";
   const [data, setData] = useState<any>(null);
 
   useEffect(() => {
-    fetch(`https://api.coinlayer.com/live?access_key=${API_KEY}`)
+    if (typeof window !== "undefined") {
+    fetch(`http://api.coinlayer.com/live?access_key=${API_KEY}`)
       .then((response) => response.json())
       .then((jsonConverted) => {
         console.log("JSON Converted Data : ", jsonConverted);
         setData(jsonConverted);
+        
       });
+    }
   }, []);
-
+  if (typeof window === "undefined") {
+    return null; 
+  }
   return (  
     < >
     <h1 className="h1 text-2xl text-center text-white mt-4 font-serif"><u>CSR (Client Side Rendering)</u></h1>
-    <div data-aos="fade-up" className="coins flex-wrap grid grid-cols-5 gap-4 mt-5  mx-5">
+    <div className="coins flex-wrap grid grid-cols-5 gap-4 mt-5  mx-5">
 <Button className="but shadow-inner shadow-gray-400" variant="secondary" size="lg">BTC: {data?.rates?.BTC}</Button>  
 <Button className="but shadow-inner shadow-gray-400" variant="secondary" size="lg">BNB: {data?.rates?.BNB}</Button>
 <Button className="but shadow-inner shadow-gray-400" variant="secondary" size="lg">ADA:{data?.rates?.ADA}</Button>

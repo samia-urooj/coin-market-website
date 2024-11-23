@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link";
 
 export default async function CoinSSGMarket(){
- const API_KEY2="3dc355f958e5290af6f0cc0728c048e7";
+ const API_KEY2="87e7d4d37ca1e30441131267f1dd6e47";
  const res = await fetch(`http://api.coinlayer.com/live?access_key=${API_KEY2}`,
   );
  const data:any = await res.json();

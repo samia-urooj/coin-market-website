@@ -6,19 +6,19 @@ import Link from "next/link";
 
 const CoinMarket=() =>{
  
-  const NEXT_PUBLIC_API_KEY = "3dc355f958e5290af6f0cc0728c048e7";
+  const API_KEY = "87e7d4d37ca1e30441131267f1dd6e47";
   const [data, setData] = useState<any>(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-    fetch(`http://api.coinlayer.com/live?access_key=${NEXT_PUBLIC_API_KEY}`)
+   
+    fetch(`http://api.coinlayer.com/live?access_key=${API_KEY}`)
       .then((response) => response.json())
       .then((jsonConverted) => {
         console.log("JSON Converted Data : ", jsonConverted);
         setData(jsonConverted);
         
       });
-    }
+    
   }, []);
   
   return (  

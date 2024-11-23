@@ -11,7 +11,7 @@ const CoinMarket=() =>{
 
   useEffect(() => {
    
-    fetch(`http://api.coinlayer.com/live?access_key=${API_KEY}`)
+    fetch(`https://api.coinlayer.com/live?access_key=${API_KEY}`)
       .then((response) => response.json())
       .then((jsonConverted) => {
         console.log("JSON Converted Data : ", jsonConverted);

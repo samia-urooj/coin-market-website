@@ -6,12 +6,12 @@ import Link from "next/link";
 
 const CoinMarket=() =>{
  
-  const API_KEY = "3dc355f958e5290af6f0cc0728c048e7";
+  const NEXT_PUBLIC_API_KEY = "3dc355f958e5290af6f0cc0728c048e7";
   const [data, setData] = useState<any>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-    fetch(`http://api.coinlayer.com/live?access_key=${API_KEY}`)
+    fetch(`http://api.coinlayer.com/live?access_key=${NEXT_PUBLIC_API_KEY}`)
       .then((response) => response.json())
       .then((jsonConverted) => {
         console.log("JSON Converted Data : ", jsonConverted);
@@ -20,13 +20,11 @@ const CoinMarket=() =>{
       });
     }
   }, []);
-  if (typeof window === "undefined") {
-    return null; 
-  }
+  
   return (  
     < >
-    <h1 className="h1 text-2xl text-center text-white mt-4 font-serif"><u>CSR (Client Side Rendering)</u></h1>
-    <div className="coins flex-wrap grid grid-cols-5 gap-4 mt-5  mx-5">
+    <h1 className="h1 text-lg sm:text-xl md:text-2xl text-center text-white mt-4 font-serif"><u>CSR (Client Side Rendering)</u></h1>
+    <div className="coins flex-wrap grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-5  mx-5">
 <Button className="but shadow-inner shadow-gray-400" variant="secondary" size="lg">BTC: {data?.rates?.BTC}</Button>  
 <Button className="but shadow-inner shadow-gray-400" variant="secondary" size="lg">BNB: {data?.rates?.BNB}</Button>
 <Button className="but shadow-inner shadow-gray-400" variant="secondary" size="lg">ADA:{data?.rates?.ADA}</Button>
@@ -82,7 +80,7 @@ const CoinMarket=() =>{
 
 </div>
 <div className="div3 grid justify-items-center">
-<Link href="/"><button className="button  hover:bg-gray-200 text-blue-1000 text-bold font-medium text-2xl h-10 w-40 text-center border-solid border-black bg-sky-400 rounded-md my-5 mx-5 ">Go Back!</button></Link></div>
+<Link href="/"><button className="button  hover:bg-gray-200 text-blue-1000 text-bold font-medium text-sm sm:text-lg md:text-2xl sm:h-8 md:h-10 h-[30px] w-[80px] sm:w-[120px] md:w-40 text-center border-solid border-black bg-sky-400 rounded-md my-5 mx-5 ">Go Back!</button></Link></div>
     </>
   );
 }
